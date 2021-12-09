@@ -1,0 +1,33 @@
+.table-wrap {
+  margin: 1rem;
+  overflow-x: auto;
+}
+table {
+  border-collapse: collapse;
+  border-radius: 7px;
+  box-shadow: 0 0 0 2px #282c34;
+  margin: 1rem;
+
+  & td {
+    padding: 10px;
+  }
+}
+
+thead {
+  line-height: 240%;
+  background-color: #eeeeee;
+  & tr {
+    & td:first-child {
+      border-top-left-radius: 7px;
+    }
+    & td:last-child {
+      border-top-right-radius: 7px;
+    }
+  }
+}
+
+tbody {
+  & td {
+    border-top: 1px solid #282c34;
+  }
+}
