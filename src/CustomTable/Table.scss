@@ -12,6 +12,7 @@ table {
   & td {
     padding: 10px;
   }
+
   & caption {
     margin-bottom: 10px;
     font-size: 140%;
@@ -37,5 +38,9 @@ thead {
 tbody {
   & td {
     border-top: 1px solid #282c34;
+  }
+
+  & td:first-child {
+    text-align: left;
   }
 }
