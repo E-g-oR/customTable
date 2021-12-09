@@ -25,7 +25,7 @@ const data: dataType[] = [
         calories: 159,
         fat: 6.0,
         carbs: 24,
-        protein: 4.0
+        protein: 6.0
     },
     {
         name: 'Ice cream sandwich',
@@ -64,7 +64,7 @@ const getrows = (data: dataType[]): (string | number)[][] => data.map(item =>
 function App() {
     return (
         <div className="App">
-            <Table data={data} thead={tableHead} getTableRows={getrows} />
+            <Table caption={"My awesome table"} data={data} thead={tableHead} getTableRows={getrows}/>
         </div>
     );
 }

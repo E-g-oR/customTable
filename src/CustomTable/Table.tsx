@@ -8,24 +8,30 @@ interface TableProps<T> {
     getTableRows: (data: T) => (string | number)[][],
 }
 
+
+const TableHead: React.FC<{ thead: string[] }> = ({thead}) => {
+    return <thead>
+    <tr>
+        {thead.length && thead.map(colTitle => <td key={colTitle}>{colTitle}</td>)}
+    </tr>
+    </thead>
+}
+
+const TableRow: React.FC<{ rowData: (string | number)[] }> = ({rowData}) => {
+    return <tr>
+        {rowData.map((colName, index) => <td key={`${colName}_${index}`}>{colName}</td>)}
+    </tr>
+}
+
+
 function Table<T>({caption, thead, getTableRows, data}: TableProps<T>) {
-
     const preparedData = getTableRows(data);
-
-    return <div className={"table-wrap"} >
+    return <div className={"table-wrap"}>
         <table>
             <caption>{caption}</caption>
-            <thead>
-            <tr>
-                { thead.length && thead.map(colTitle => <td key={colTitle}>{colTitle}</td>)}
-            </tr>
-            </thead>
+            <TableHead thead={thead}/>
             <tbody>
-            {preparedData.map(row =>
-                <tr>
-                    {row.map(colName => <td>{colName}</td>)}
-                </tr>
-            )}
+            {preparedData.map(row => <TableRow key={row.toString()} rowData={row}/>)}
             </tbody>
         </table>
     </div>
